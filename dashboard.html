@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- =========================
+              BASIC PAGE INFORMATION
+        ============================== -->
+    <title>RankHacker - The intelligent content strategy platform!</title>
+    <meta name="description" content="Intelligently generate an actionable content strategy complete with publication calendar to beat your competition.">
+    <meta name="keywords" content="content strategy, content roadmap, content calendar">
+    <meta name="author" content="fairmarketing.com">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- =========================
+             FONTS
+        ============================== -->
+    <link href="fonts/font-awesome/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- =========================
+             STYLESHEETS
+        ============================== -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/materialize.css" rel="stylesheet" id="theme-change">
+    <link href="css/custom-style.css?v=16" rel="stylesheet" id="theme-change">
+    <link href="css/rankhacker.css" rel="stylesheet" id="theme-change">
+    <link href="css/bootstrap-slider.min.css" rel="stylesheet" id="theme-change">
+
+    <!--google js file-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+    
+    <!--1520 files-->
+    <script src="js/bootstrap-slider.js"></script>
+    <script src="js/1520.js?v=16"></script>
+    <link href="css/1520.css?v=16" rel="stylesheet" id="theme-change">
+    <link href="css/spinner.css?v=16" rel="stylesheet" id="theme-change">
+    
+    <script>
+        function run(){
+            loadProjectDashboard(false);
+            setInterval(loadProjectDashboard.bind(false), 15000);
+        }
+    </script>
+    
+</head>
+
+<body id="body" class="page-loading home noisy" onload="run();">
+
+<!-- =========================
+     MAIN MENU
+============================== -->
+<div id="rank-header-outer">
+    <nav id="mainmenu" class="navbar navbar-fixed-top main-menu" role="navigation">
+        <!-- LOGO CONTAINER -->
+        <div class="col-lg-1"></div>
+        <div class="logo-cont logo-outer col-lg-9" style="width:77%;">
+            <a class="navbar-brand" data-text="RANKHACKER" href="#header"><img src="images/logo-main.png" alt="site-logo" style="cursor:pointer;" onclick="gotoKHDashboard();"> </a>
+            <!--<span style="float:left;"><img src="images/icon-keyword_hacker_small.png" alt="kwhacker" class="module-icon" onclick="gotoKHDashboard();"></span><span class="module-icon-label" onclick="gotoKHDashboard();"><strong>KEYWORD</strong> HACKER</span>
+            <span style="float:left;"><img src="images/icon-content_hacker_small.png" alt="contenthacker" class="module-icon"></span><span class="module-icon-label"><strong>CONTENT</strong> HACKER</span>-->
+            <!--<div class="dashboard-status"><i class="white_eagle-rh"></i><a style="cursor:default;">Dashboard Activated</a></div>-->
+            <!--<div class="dashboard-status"><img src="images/keyword-hacker-icon-white.png" alt="kwhacker" style="cursor:pointer;" class="module-icon" onclick="gotoKHDashboard();"><a class="module-icon-label" style="cursor:pointer;" onclick="gotoKHDashboard();">Keyword Hacker</a></div>
+            <div class="dashboard-status"><img src="images/content-hacker-icon-white.png" style="cursor:default;opacity:0.6;" alt="contenthacker" class="module-icon"><a class="module-icon-label" style="cursor:default;opacity:0.6;">Content Hacker</a></div>
+            <div class="dashboard-status"><img src="images/keyword-hacker-icon-white.png" alt="kwhacker" class="module-icon"><a class="module-icon-label">Keyword Hacker</a></div>-->
+        </div>
+        <div class="logo-cont logo-outer-2 col-lg-1" style="width:9%;">
+            <span class="logout-link" onclick="logout();">LOGOUT</span>
+        </div>
+        <div class="col-lg-1">
+            <span class="logout-link" id="industry-link" onclick="manageIndustries();" style="display:none;font-size:12px;float:left;">MANAGE</span>
+        </div>
+    </nav>
+</div>
+
+<!-- =========================
+     HEADER
+============================== -->
+<section id="header" class="blurable">
+    <div id="report-bg" class="piece "></div>
+    <!--div class="piece scanlines noclick"></div>
+        <div id="hacker-text" class="piece glow noclick"></div>
+        <div id="crt-output" class="piece output noopacity"></div-->
+    
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+    <div class="overlay interface-outer">
+        <div class="projects">
+            <div class="row row-v-spacing"></div>
+            <div id="dashboard-header" class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="head-info-box">
+                            <!--<h4 class="welcome-text">WELCOME TO THE KEYWORD HACKER MODULE</h4>-->
+
+                            <h2 class="page-info" id="dashboard-user-full-name"></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 padding-box">
+                    <div class="col-lg-6 view-option-outer">
+                        <ul>
+                            <li class="black_eagle-rh"></li>
+                            <li><a href="dashboard.html">Missions</a></li>
+                            <!--li class="active"><a href="#">Project View </a> </li>
+                            <li><a href="#"> Research View</a> </li-->
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 rh-actions-menu pull-right">
+                        <ul>
+                            <!--<li><a href="" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Download selected projects" data-original-title="" title="">Download</a></li>
+                            <li>
+                                <button id="create-new-project" class="btn btn-orange btn-round" onclick="gotoCreateProject();"><i class="fa fa-plus"></i><span>Create New</span></button>
+                            </li>-->
+                        </ul>
+                    </div>
+                </div>
+                <div id="shadow"></div>
+            </div>
+            <div class="col-lg-12">
+                <div class="padding-box">
+
+                    <div class="big-demo go-wide" data-js-module="sorting-demo">
+                        <div class="row">
+                            <div class="bread-comb-outer col-lg-6">
+                                <div class="project-setup-input row" style="margin-top:-10px;">
+                                    <span style="float:left;"><label style="font-size:13px;">Search for Mission</label></span><span style="padding-left:15px;float:left;"><input type="text" id="search-box" name="search-box" onkeyup="searchCards();" style="height:25px;font-size:12px;width:300px;margin-top:9px;"></span><span style="margin-left:15px;float:left;"><i class="fa fa-search" style="display:none;margin-top:15px;cursor:pointer;"></i></span>
+                                </div>
+                            </div>
+                            
+                            <div class="sort-navigation col-lg-6 text-right  button-group sort-by-button-group  card-sort-menu">
+                                <ul>
+                                    <li>Sort by:</li>
+                                    <li>
+                                        <button class="sort-btns" data-sort-by="project_name_sort" onclick="displayDashboardCards('project',true,'');">Mission</button>
+                                    </li>
+                                    <li>
+                                        <button class="sort-btns" data-sort-by="date_sort" onclick="displayDashboardCards('runDate',true,'');">Publish Date</button>
+                                    </li>
+                                    <li>
+                                        <button class="sort-btns" data-sort-by="project_status_sort" onclick="displayDashboardCards('status',true,'');">Status</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="dashboard-keywordhacker col-lg-12">
+                            <div class="row-v-spacing project-cards-outer" id="card-container" style="text-align:center;">
+                                
+                                    <br/><br/><br/>
+                                    <div class="three-quarters-loader" id="loading_spinner" style="text-align:middle;margin-left:-45px;"></div>
+                                    
+                                    
+                                
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                
+                <div class="rt-bottom-outer">
+            <div class="rt-bottom-section">
+                <h2 class="text-center"><b>[<span>Coming soon</span>]</b></h2>
+                <br/><br/>
+                <div class="text-center">
+                    <h3>Content Hacker Module</h3>
+                    <p>Generate detailed blueprints that lay out a clear and comprehensive content strategy guaranteed to beat your competition.</p>
+                    <br />
+                    <img class="materialboxed" width="500" style="cursor: pointer;" src="images/ContentHackerPreview.png">
+                    <br />
+
+                </div>
+                <!--<div class="text-center">
+                    <h3>Keyword Hacker Module</h3>
+                    <p>Gain confidence with your keyword decisions. Know which keywords will provide goal oriented results and generate a return on your marketing investment.</p>
+                    <br />
+                    <img class="materialboxed" width="500" style="cursor: pointer;" src="images/keywordhacker.png">
+                    <br />
+                </div>
+            </div>-->
+        </div>
+        
+    </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+        <div class="col-lg-1"></div>
+    
+<!-- Edit project modal -->
+<div id="dimmer" class="dimmer"></div>
+
+<div id="edit-project-window" class="edit-project-window">
+    <input id="edit-project-id" type="hidden" value="0"/>
+    
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-2" id="setup-box-outer">
+        <br/>
+        <h2 class="setup-heading" style="color:#337ab7;">Edit Project-Level Information</h2>
+        <form class="project-setup-form">
+            <div class="project-setup-input row"><label class="col-lg-3 col-md-3">Project URL</label><label id="project-url" style="color:rgba(61,61,61,.8);"></label></div>
+            <div class="project-setup-input row" style="margin-top:-10px;"><label class="col-lg-3 col-md-3">Location</label><label id="project-location" style="color:rgba(61,61,61,.8);"></label></div>
+            
+            <div class="project-setup-input row">
+                <label class="col-lg-3 col-md-3">Search Engines</label>
+                <span class="col-lg-9 col-md-9" style="margin-top:-25px;margin-bottom:25px;">
+                <ul style="margin-left:-45px;">
+                    <li class="checkbox-outer col-lg-3 col-md-3">
+                        <h2 style="vertical-align:middle;">
+                            <input type="checkbox" id="use-google" value="1" checked onclick="checkRequiredEngine('google','bing');">
+                            <label for="use-google" style="font-size:13px;">Google</label>
+                        </h2>
+                    </li>
+                    <li class="checkbox-outer col-lg-3 col-md-3">
+                        <h2 style="vertical-align:middle;">
+                            <input type="checkbox" id="use-bing" value="1" checked onclick="checkRequiredEngine('bing','google');">
+                            <label for="use-bing" style="font-size:13px;">Bing+Yahoo</label>
+                        </h2>
+                    </li>
+                    <li class="checkbox-outer col-lg-3 col-md-3" style="display:none;">
+                        <h2 style="vertical-align:middle;">
+                            <input type="checkbox" id="use-you-tube" value="1">
+                            <label for="use-you-tube" style="font-size:13px;">You Tube</label>
+                        </h2>
+                    </li>
+                    <li class="checkbox-outer col-lg-3 col-md-3" style="display:none;">
+                        <h2 style="vertical-align:middle;">
+                            <input type="checkbox" id="use-app-store" value="1">
+                            <label for="use-app-store" style="font-size:13px;">App Store</label>
+                        </h2>
+                    </li>
+                </ul>
+                </span>
+            </div>
+            
+            <div class="project-setup-input row">
+                <label class="col-lg-3 col-md-3">Search Volume</label>
+                <span class="col-lg-9 col-md-9" style="margin-top:-25px;margin-bottom:25px;">
+                <ul style="margin-left:-53px;">
+                    <li class="checkbox-outer col-lg-3 col-md-3">
+                        <h2 style="vertical-align:middle;">
+                            <input type="checkbox" id="use-local" value="1" checked onclick="toggleLocalNational('local','national');">
+                            <label for="use-local" style="font-size:13px;">Local</label>
+                        </h2>
+                    </li>
+                    <li class="checkbox-outer col-lg-3 col-md-3">
+                        <h2 style="vertical-align:middle;">
+                            <input type="checkbox" id="use-national" value="1" onclick="toggleLocalNational('national','local');">
+                            <label for="use-national" style="font-size:13px;">National</label>
+                        </h2>
+                    </li>
+                </ul>
+                </span>
+            </div>
+            
+
+            <div class="range-slider-section">
+                <div class="project-setup-input row"><label class="col-lg-6">How many visitors currently land on your website each month?</label>
+
+                    <div class="col-lg-6 project-setup-slider">
+                        <input id="ex6" type="text" data-slider-min="0" data-slider-max="100000" data-slider-step="1000" data-slider-value="0"/>
+
+                        <div id="ex6CurrentSliderValLabel" class="range-slider-value"><span class="range-title">V</span><input id="ex6SliderVal" type="text" class="range-count" value="0"/></div>
+                    </div>
+                </div>
+
+                <div class="project-setup-input row"><label class="col-lg-6">How many of the above visitors convert to actual paying customers?</label>
+
+                    <div class="col-lg-6 project-setup-slider">
+                        <input id="ex7" type="text" data-slider-min="0" data-slider-max="1000" data-slider-step="10" data-slider-value="0"/>
+
+                        <div id="ex7CurrentSliderValLabel" class="range-slider-value"><span class="range-title">P</span>
+                            <input id="ex7SliderVal" type="text" class="range-count" value="0"/></div>
+                    </div>
+                </div>
+
+                <div class="project-setup-input row"><label class="col-lg-6">What is the one-time <span id="currency-code-1">$</span> value of ONE paying customer? (average is okay)</label>
+
+                    <div class="col-lg-6 project-setup-slider">
+                        <input id="ex8" type="text" data-slider-min="0" data-slider-max="5000" data-slider-step="25" data-slider-value="0"/>
+
+                        <div id="ex8CurrentSliderValLabel" class="range-slider-value"><span class="range-title" id="currency-code-2">$</span>
+                            <input id="ex8SliderVal" type="text" class="range-count" value="0"/></div>
+                    </div>
+                </div>
+
+                <div class="project-setup-input row"><label class="col-lg-6">What is your average cost to produce one piece of marketing content?</label>
+
+                    <div class="col-lg-6 project-setup-slider">
+                        <input id="ex9" type="text" data-slider-min="0" data-slider-max="5000" data-slider-step="25" data-slider-value="0"/>
+
+                        <div id="ex9CurrentSliderValLabel" class="range-slider-value"><span class="range-title" id="currency-code-3">$</span>
+                            <input id="ex9SliderVal" type="text" class="range-count" value="0"/></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="submit-button-block">
+                <a class="gray-btn btn pull-right" style="margin-left:10px;" onclick="cancelEditKeywordHackerProject();">CANCEL</a>
+                <a class="orange-btn btn pull-right" style="margin-right:10px;" onclick="editKeywordHackerProject('dashboard');">UPDATE</a>
+            </div>
+        </form>
+        <div class="project-setup-input row"><span id="edit-project-response" class="col-lg-12" style="text-align:center;"></span></div>
+    </div>
+    
+</div>
+
+<div id="delete-project-window" class="delete-project-window">
+    <input id="delete-project-id" type="hidden" value="0"/>
+    
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-2" id="setup-box-outer">
+        <br/>
+        <h2 class="setup-heading" style="color:#337ab7;">Confirmation</h2>
+        <form class="project-setup-form">
+            
+            <div class="range-slider-section">
+                <p>Are you sure you want to delete this project?</p>
+            </div>
+
+            <div id="submit-button-block">
+                <a class="gray-btn btn pull-right" style="margin-left:10px;" onclick="cancelDeleteKeywordHackerProject();">CANCEL</a>
+                <a class="orange-btn btn pull-right" style="margin-right:10px;" onclick="deleteKeywordHackerProject();">Delete</a>
+            </div>
+        </form>
+        <div class="project-setup-input row"><span id="delete-project-response" class="col-lg-12" style="text-align:center;"></span></div>
+    </div>
+    
+</div>
+    
+
+<div id="activate-new-window" class="activate-new-window">
+    <div class="activate-heading">
+        <div class="row">
+        <div class="col-lg-10"><h2>Select mission type to activate</h2></div>
+        <div class="col-lg-2"><i class="fa fa-times close-activate" onclick="hideActivate();"></i></div>
+        </div>
+    </div>
+    
+    <div class="activate-logo-container">
+        <div class="row">
+            <div class="col-lg-6"><img src="images/keyword_logo_gray.png" id="kh_logo" class="large-shield-left" onclick="gotoCreateProject();"></div>
+            <div class="col-lg-6"><img src="images/content_logo_gray.png" id="ch_logo" class="large-shield-right" onclick="gotoRHCreateProject('','','','','','','');"></div>
+        </div>
+    </div>
+    <div class="activate-logo-container">
+        <div class="row">
+            <div class="col-lg-6"><h3 class="shield-label">KEYWORD<br/>HACKER</h3><br/><p class="shield-description">Define phrases and identify net worth.</p></div>
+            <div class="col-lg-6"><h3 class="shield-label">CONTENT<br/>HACKER</h3><br/><p class="shield-description">Declassify and compare competitor strategy.</p></div>
+        </div>
+    </div>
+</div>
+
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+============================== -->
+<!-- Footer start here -->
+<footer id="interface-footer">
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <div class="row">
+            <!--Footer left section start here-->
+            <div class="footer-link col-lg-4">
+                <ul class="text-left">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#"> Privacy Policy</a></li>
+                    <li><a href="#">agent@rankhacker.com </a></li>
+                </ul>
+            </div>
+            <!--footer left section close here-->
+            <!--footer center socail icon section start here-->
+            <div class="footer-socail-icon col-lg-4 ">
+                <ul class="text-center">
+                    <li><a href="https://www.facebook.com/rankhacker/?fref=ts" target="_blank"> <i class="fa fa-facebook"></i> </a></li>
+                    <li><a href="https://twitter.com/rank_hacker?lang=en" target="_blank"> <i class="fa fa-twitter"></i> </a></li>
+                    <!--<li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-vimeo-square"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-youtube-play"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>-->
+                </ul>
+            </div>
+            <!--footer center socail icon section close here-->
+            <!--copyright section start here-->
+            <div class="copy-right-section col-lg-4 text-right"> &copy; 2015 All Rights Reserved</div>
+            <!--copyright section close here-->
+        </div>
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+</footer>
+<!--Footer close here-->
+
+<!-- =========================
+     JS SCRIPTS
+============================== -->
+<!-- JQUERY -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- BOOTSTRAP SCRIPTS -->
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/jquery.matchHeight-min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/bootstrap-slider.js"></script>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('.matchheight').matchHeight();
+    });
+</script>
+
+<script>
+
+    jQuery(document).ready(function () {
+        
+        //$('[data-toggle="tooltip"]').tooltip();
+        //$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+        $('#kh_logo').hover(function() {
+            $(this).attr('src', 'images/keyword_logo_blue.png');
+          }, function() {
+            $(this).attr('src', 'images/keyword_logo_gray.png');
+          });
+
+        $('#ch_logo').hover(function() {
+            $(this).attr('src', 'images/content_logo_blue.png');
+          }, function() {
+            $(this).attr('src', 'images/content_logo_gray.png');
+          });
+
+        //isotope custom js
+        var $grid = $('.grid').isotope({
+            getSortData: {
+                project_name_sort: '.project_name_sort a',
+                domain_name_sort: '.domain_name_sort',
+                number: '.number parseInt',
+                project_status_sort: '.project_status_sort',
+                date_sort: function (itemElem) {
+
+                    var dateStr_new = $(itemElem).find(".date_sort").text();
+                    var dateStrnew = dateStr_new.split(' ');
+                    var dateStrnew1 = dateStrnew[0] + " 1 , " + dateStrnew[1];
+                    var dateStr = Date.parse(dateStrnew1);
+                    return dateStr;
+                },
+                category: '[data-category]',
+                goal_sort: function (itemElem) {
+                    var goal_sort = $(itemElem).find('.goal_sort').text();
+                    return parseFloat(goal_sort.replace(/[\(\)]/g, ''));
+                }
+            }
+        });
+
+
+        // sort items on button click
+        $('.sort-by-button-group').on('click', 'button', function () {
+
+            var sortByValue = $(this).attr('data-sort-by');
+            $grid.isotope({sortBy: sortByValue});
+        });
+
+
+        // Sort navigation Active class add
+        $('.sort-navigation ul li button').click(function () {
+            $('.sort-navigation ul li.active').removeClass('active');
+            $(this).closest('li').addClass('active');
+        });
+
+        
+        //range slider custom js
+        $("#ex6").slider();
+        $("#ex6").on("slide, slideStop", function (slideEvt) {
+            var slider_num_ex6 = numeral(slideEvt.value).format('0,0');
+            //var slider_num_ex6 = tooltip-inner;
+            $("#ex6SliderVal").val(slider_num_ex6);
+        });
+        $("#ex6SliderVal").change(function(){
+            var sliderVal = parseInt($("#ex6SliderVal").val().replace(",",""));
+            if(isNaN(sliderVal) || sliderVal < 0){ sliderVal = 0; }
+            $("#ex6").slider({
+                value: sliderVal
+                });
+            $("#ex6").slider('refresh');
+            $("#ex6SliderVal").val(numberWithCommas(sliderVal));
+        });
+
+
+        $("#ex7").slider();
+        $("#ex7").on("slide, slideStop", function (slideEvt) {
+            var slider_num_ex7 = numeral(slideEvt.value).format('0,0');
+            $("#ex7SliderVal").val(slider_num_ex7);
+        });
+        $("#ex7SliderVal").change(function(){
+            var sliderVal = parseInt($("#ex7SliderVal").val().replace(",",""));
+            if(isNaN(sliderVal) || sliderVal < 0){ sliderVal = 0; }
+            $("#ex7").slider({
+                value: sliderVal
+                });
+            $("#ex7").slider('refresh');
+            $("#ex7SliderVal").val(numberWithCommas(sliderVal));
+        });
+
+
+        $("#ex8").slider();
+        $("#ex8").on("slide, slideStop", function (slideEvt) {
+            var slider_num_ex8 = numeral(slideEvt.value).format('0,0');
+            $("#ex8SliderVal").val(slider_num_ex8);
+        });
+        $("#ex8SliderVal").change(function(){
+            var sliderVal = parseInt($("#ex8SliderVal").val().replace(",",""));
+            if(isNaN(sliderVal) || sliderVal < 0){ sliderVal = 0; }
+            $("#ex8").slider({
+                value: sliderVal
+                });
+            $("#ex8").slider('refresh');
+            $("#ex8SliderVal").val(numberWithCommas(sliderVal));
+        });
+        
+        $("#ex9").slider();
+        $("#ex9").on("slide, slideStop", function (slideEvt) {
+            var slider_num_ex9 = numeral(slideEvt.value).format('0,0');
+            $("#ex9SliderVal").val(slider_num_ex9);
+        });
+        $("#ex9SliderVal").change(function(){
+            var sliderVal = parseInt($("#ex9SliderVal").val().replace(",",""));
+            if(isNaN(sliderVal) || sliderVal < 0){ sliderVal = 0; }
+            $("#ex9").slider({
+                value: sliderVal
+                });
+            $("#ex9").slider('refresh');
+            $("#ex9SliderVal").val(numberWithCommas(sliderVal));
+        });
+
+
+    });
+
+
+</script>
+
+<input type="hidden" id="json" value=""/>
+<input type="hidden" id="curr_sort" value="runDate"/>
+<input type="hidden" id="curr_sort_reversed" value="false"/>
+
+</body>
+</html>

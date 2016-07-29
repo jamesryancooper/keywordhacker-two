@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- =========================
+          BASIC PAGE INFORMATION
+    ============================== -->
+    <title>RankHacker - The intelligent content strategy platform!</title>
+    <meta name="description" content="Intelligently generate an actionable content strategy complete with publication calendar to beat your competition.">
+    <meta name="keywords" content="content strategy, content roadmap, content calendar">
+    <meta name="author" content="fairmarketing.com">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- =========================
+         FONTS
+    ============================== -->
+    <link href="fonts/font-awesome/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+    <!--<link href="fonts/font-family.css" rel='stylesheet' type='text/css'>-->
+    <link href='https://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- =========================
+         STYLESHEETS
+    ============================== -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/materialize.css" rel="stylesheet" id="theme-change">
+    <link href="css/custom-style.css?v=16" rel="stylesheet" id="theme-change">
+    <link href="css/rankhacker.css" rel="stylesheet" id="theme-change">
+    <link href="css/bootstrap-slider.min.css" rel="stylesheet" id="theme-change">
+
+
+    <!--google js file-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
+    
+    <!--1520 files-->
+    <script src="js/bootstrap-slider.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/1520.js?v=16"></script>
+    <script src="js/readmore.js"></script>
+    <link href="css/1520.css?v=16" rel="stylesheet" id="theme-change">
+    <link href="css/spinner.css?v=16" rel="stylesheet" id="theme-change">
+    
+    <script>
+        function run(){
+            loadProjectData();
+            setInterval(checkProjectDone, 5000);
+        }
+    </script>
+</head>
+
+<body id="body" class="page-loading home noisy" onload="run();">
+
+<!-- =========================
+     MAIN MENU
+============================== -->
+<div id="rank-header-outer">
+    <nav id="mainmenu" class="navbar navbar-fixed-top main-menu" role="navigation">
+        <!-- LOGO CONTAINER -->
+        <!--<div class="col-lg-1"></div>-->
+        <div class="col-lg-10 col-lg-offset-1" style="width:77%;">
+            <a class="navbar-brand" data-text="RANKHACKER" href="#header"><img src="images/logo-main.png" alt="site-logo" style="cursor:pointer;" onclick="gotoKHDashboard();"> </a>
+            <!--<span style="float:left;"><img src="images/icon-keyword_hacker_small.png" alt="kwhacker" class="module-icon" onclick="gotoKHDashboard();"></span><span class="module-icon-label" onclick="gotoKHDashboard();"><strong>KEYWORD</strong> HACKER</span>
+            <span style="float:left;"><img src="images/icon-content_hacker_small.png" alt="contenthacker" class="module-icon"></span><span class="module-icon-label"><strong>CONTENT</strong> HACKER</span>-->
+            <!--<div class="dashboard-status"><i class="white_eagle-rh"></i><a style="cursor:default;">Dashboard Activated</a></div>-->
+            <!--<div class="dashboard-status"><img src="images/keyword-hacker-icon-white.png" alt="kwhacker" style="cursor:pointer;" class="module-icon" onclick="gotoKHDashboard();"><a class="module-icon-label" style="cursor:pointer;" onclick="gotoKHDashboard();">Keyword Hacker</a></div>
+            <div class="dashboard-status"><img src="images/content-hacker-icon-white.png" style="cursor:default;opacity:0.6;" alt="contenthacker" class="module-icon"><a class="module-icon-label" style="cursor:default;opacity:0.6;">Content Hacker</a></div>-->
+            <div class="dashboard-status"><img src="images/keyword-hacker-icon-white.png" alt="kwhacker" class="module-icon"><a class="module-icon-label">Keyword Hacker</a></div>
+            <div class="dashboard-status"><img src="images/content-hacker-icon-white.png" style="opacity:0.6;cursor:pointer;"  id="contentHackerLinkLogo" onclick="gotoRHStorefrontFromReport();" alt="contenthacker" class="module-icon"><a class="module-icon-label" style="opacity:0.6;cursor:pointer;" id="contentHackerLinkText" onclick="gotoRHStorefrontFromReport();">Content Hacker</a></div>
+        </div>
+        <div class="logo-cont logo-outer-2 col-lg-1" style="width:9%;">
+            <span class="logout-link" onclick="logout();">LOGOUT</span>
+        </div>
+        <!--<div class="col-lg-1"></div>-->
+    </nav>
+</div>
+
+<!-- =========================
+     HEADER
+============================== -->
+<section id="header" class="blurable">
+    <div id="report-bg" class="piece "></div>
+    <!--div class="piece scanlines noclick"></div>
+    <div id="hacker-text" class="piece glow noclick"></div>
+    <div id="crt-output" class="piece output noopacity"></div-->
+
+    <!--<div class="col-lg-1"></div>-->
+    <div class="col-lg-11 col-lg-offset-1">
+    <div class="overlay interface-outer">
+        <div class="projects">
+            <div class="row row-v-spacing"></div>
+            <div id="dashboard-header" class="col-lg-11">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="head-info-box">
+                            <!--<h4 class="welcome-text"> WELCOME TO THE KEYWORD HACKER MODULE</h4>-->
+
+                            <h2 class="page-info">the <strong>mission</strong> <strong>[</strong> Review <strong>Keyword Net-Worth<sup>TM</sup></strong> and select phrases that meet or exceed your sales goal <strong>]</strong></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 padding-box">
+                    <div class="col-lg-6 view-option-outer">
+                        <ul>
+                            <li class="black_eagle-rh"></li>
+                            <li><a href="dashboard.html">Missions</a> &nbsp; <i class="fa fa-angle-right"></i> &nbsp; <a>Keyword Hacker</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 rh-actions-menu pull-right">
+                        <!--<ul>
+                            <li><a data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Download selected projects" data-original-title="" title="">Download</a></li>
+                            <li>
+                                <button id="create-new-project" class="btn btn-orange btn-round" onclick="gotoCreateProject();"><i class="fa fa-plus"></i><span>Create New</span></button>
+                            </li>
+                        </ul>-->
+                    </div>
+                </div>
+                <div id="shadow"></div>
+            </div>
+            
+            
+            <div class="row col-lg-11">
+                <div class="three-quarters-loader" id="loading_spinner" style="text-align:middle;margin-top:105px;"></div>
+            </div>
+            
+            <div class="col-lg-11">
+                <div class="padding-box">
+                    <div class="bread-comb-outer">
+                        <!--<ul>
+                            <li><a href="dashboard.html">Projects</a></li>
+                            >
+                            <li><a href="keywordhacker.html">Keyword hacker</a></li>
+                        </ul>-->
+                    </div>
+                    
+                    <div class="row-v-spacing keyword-hacker-info-box">
+
+
+                        <div id="project-row-accordion" role="tablist" aria-multiselectable="true" style="margin-top:-30px;">
+
+
+                            
+                            
+                            <div class="panel panel-default project-row-outer" id="main-panel" style="display:none;">
+                                <div role="tab" id="project-headingOne">
+                                    <div id="projectResearchDiv" class="collapsed collapsenew" data-toggle="collapse" href="#project-collapseOne" data-parent="#project-row-accordion" aria-expanded="true" aria-controls="project-collapseOne">
+                                        <h2 class="project-name" id="projectTitle"></h2>
+                                        <ul class="kerword-project-row">
+                                            <li class="keyword-items"><b class="fa-2x green-text"><span id="numKeywords"></span></b>
+
+                                                <div class="keyword-item-info-first">
+                                                    <h2 class="calculator-text">KEYWORDS<br/>SELECTED</h2>
+                                                </div>
+                                            </li>
+                                            <li class="keyword-items">
+                                                <div class="keyword-item-info-second">
+                                                    <span id="search-engine-icons"></span>
+                                                    <span id="geoLocation"></span><span>LOCATION</span>
+                                                </div>
+                                            </li>
+                                            <li class="keyword-items"><i class="keyword-item-icon rh-search-vol-icon"></i>
+
+                                                <div class="keyword-item-info">
+                                                    <span id="searchVolume"></span>
+                                                </div>
+                                            </li>
+                                            <li class="keyword-items"><i class="keyword-item-icon rh-mo-visitor-icon"></i>
+
+                                                <div class="keyword-item-info">
+                                                    <span id="projectedVisitors"></span>
+                                                </div>
+                                            </li>
+                                            <li class="keyword-items"><i class="keyword-item-icon rh-mo-saler-customer"></i>
+
+                                                <div class="keyword-item-info">
+                                                    <span id="projectedCustomers"></span>
+                                                </div>
+                                            </li>
+                                            <li class="keyword-items"><i class="keyword-item-icon rh-mo-saler-icon"></i>
+
+                                                <div class="keyword-item-info">
+                                                    <span id="projectedSales"></span>
+                                                </div>
+                                            </li>
+                                            <li class="keyword-items"><i class="keyword-item-icon rh-dolor-icon"></i>
+
+                                                <div class="keyword-item-info">
+                                                    <span id="costPerMonth"></span>
+                                                </div>
+                                            </li>
+                                            <li class="keyword-items"><i class="keyword-item-icon rh-money-icon"></i>
+                                                <div class="keyword-item-info">
+                                                    <span id="kwNetWorth"></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="project-collapseOne" class="panel-collapse collapse  keyword-phraser-section" role="tabpanel" aria-labelledby="project-headingOne">
+                                    <!--<span class="expand-collapse"><a onclick="expandAll(this);" style="color:#000;cursor:pointer;">EXPAND ALL</a>&nbsp;/&nbsp;<a onclick="collapseAll(this);" style="color:#000;cursor:pointer;">COLLAPSE ALL</a></span>-->
+
+                                    <div class="keyword-phraser-heading">
+                                        <ul class="keyword-phraser-row">
+                                            <li class="checkbox-outer width-2-5"> &nbsp; </li>
+                                            <li class="keyword-phraser-tittle width-30" style="cursor:pointer;" onclick="displayProjectInfo('keyword');">
+                                                <h2>Keyword<br>Phrases</h2><i class="fa fa-sort" style="padding-left:5px;color:#8c8c8c;"></i>
+                                            </li>
+                                            <!--<li class="power-goal-info width-7" style="cursor:pointer;" onclick="displayProjectInfo('powerLevelGoal');">
+                                                <h2><a data-toggle="tooltip" class="tooltip-hover" title="Represents the level of marketing effort required for each keyword. A lower Power Level Goal is preferable since it suggests that less effort is required to meet your goals.">Power<br>Level Goal </a></h2><i class="fa fa-sort" style="padding-left:5px;color:#8c8c8c;"></i>
+                                            </li>-->
+                                            <li class="spacer-info"></li>
+                                            <li class="monthly-organic-info width-10" style="cursor:pointer;" onclick="displayProjectInfo('searchVolume');">
+                                                <h2><a data-toggle="tooltip" class="tooltip-hover" title="The monthly average searches for each keyword.">Monthly Organic<br>Search Volume </a></h2><i class="fa fa-sort" style="padding-left:5px;color:#8c8c8c;"></i>
+                                            </li>
+                                            <li class="spacer-info"></li>
+                                            <li class="monthly-visitors-info width-10" style="cursor:pointer;" onclick="displayProjectInfo('monthlyVisitors');">
+                                                <h2><a data-toggle="tooltip" class="tooltip-hover" title="Applying each keyword's average Click Through Rate to the Monthly Organic Search Volume, based on selected competitors.">Projected<br>Monthly Visitors </a></h2><i class="fa fa-sort" style="padding-left:5px;color:#8c8c8c;"></i>
+                                            </li>
+                                            <li class="spacer-info"></li>
+                                            <li class="monthly-customers-info width-12" style="cursor:pointer;" onclick="displayProjectInfo('monthlyCustomers');">
+                                                <h2><a data-toggle="tooltip" class="tooltip-hover" title="Applying your website's current Conversion Rate to Projected Monthly Visitors.">Projected<br>Monthly Customers </a></h2><i class="fa fa-sort" style="padding-left:5px;color:#8c8c8c;"></i>
+                                            </li>
+                                            <li class="spacer-info"></li>
+                                            <li class="monthly-sales-info width-10" style="cursor:pointer;" onclick="displayProjectInfo('monthlySales');">
+                                                <h2><a data-toggle="tooltip" class="tooltip-hover" title="Projected Customers multiplied by the monetary value of one paying customer.">Projected<br>Monthly Sales </a></h2><i class="fa fa-sort" style="padding-left:5px;color:#8c8c8c;"></i>
+                                            </li>
+                                            <li class="spacer-info"></li>
+                                            <!--<li class="cost-monthly-info width-7" style="cursor:pointer;" onclick="displayProjectInfo('costPerMonth');">-->
+                                            <li class="cost-monthly-info width-10">
+                                                <h2><a data-toggle="tooltip" class="tooltip-hover" title="Goal x Cost">Content Goal &amp; Cost </a></h2><i class="fa fa-sort" style="padding-left:5px;color:#8c8c8c;"></i>
+                                            </li>
+                                            <li class="spacer-info"></li>
+                                            <li class="keyword-net-worth-info width-10" style="cursor:pointer;" onclick="displayProjectInfo('keywordNetWorth');">
+                                                <h2><a data-toggle="tooltip" class="tooltip-hover" title="Projected return on your invested marketing dollars for this keyword." >Keyword Net-Worth </a></h2><i class="fa fa-sort" style="padding-left:5px;color:#8c8c8c;"></i>
+                                            </li>
+                                            <li class="spacer-info"></li>
+                                            <!--<li class="content-blueprint-info width-7">
+                                                <h2><a data-toggle="tooltip" class="tooltip-hover" title="Generate a Content Blueprint for each keyword.">Content<br>Blueprint </a></h2>
+                                            </li>-->
+                                            <li class="checkbox-outer width-2-1">&nbsp;</li>
+                                        </ul>
+                                    </div>
+                                    <div class="keyword-phraser-row-outer">
+                                        <div id="keyword-phraser-accordion" class="phraser-accordion-outer" role="tablist" aria-multiselectable="true">
+
+                                            
+                                            
+                                        </div>
+
+                                        <div class="add-custom-keyword-outer">
+                                            <div id="url-list">
+                                                <a href="#add-more-url" class="add-more-url" id="button-add-url">ENTER KEYWORD PHRASE</a>
+                                            </div>
+                                            <div id="url-box-template">
+                                                <div class="url-box">
+                                                    <input id="custom-url" class="url-input" value="" type="text" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="add-custom-keyword-outer" id="new-phrase-container" style="display:none;">
+                                            <input type="hidden" id="keyword-count" value="0"/>
+                                            <div class="suggest-keywords-list">
+                                                <ul id="ctc">
+
+                                                </ul>
+                                            </div>
+                                            <div class="suggest-keywords-list">
+                                                <div id="submit-button-block">
+                                                    <a class="orange-btn btn pull-left" onclick="recalculateProject();" id="add-keywords-button" style="opacity:0.0;">ADD 0 KEYWORDS</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <div class="suggest-keywords-list" style="margin-top:30px;">
+                                            <p class="suggest-keywords-label">+ Click to Add Suggested Keywords</p>
+                                            <!--<label for="post-2" id="read-more-button-label" class="read-more-trigger" onclick="toggleReadMore();">SHOW MORE KEYWORDS</label>-->
+                                            <input type="checkbox" class="read-more-state" id="post-2"/>
+                                                <ul id="suggestedKeywordsList" class="read-more-wrap">
+
+                                                </ul>
+                                            
+                                            <div class="show-more-text" id="show-more-text">SHOW MORE</div><div class="show-more-button"><label for="post-2" id="read-more-button-label" class="read-more-trigger" onclick="toggleReadMore();"></label></div>
+                                        </div>
+                                        
+                                        <div class="card-box-bottom" id="dateDivBottom"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--<div class="col-lg-1"></div>-->
+    
+<!-- Edit project modal -->
+<div id="dimmer" class="dimmer"></div>
+
+<div id="edit-project-window" class="edit-project-window">
+    <input id="edit-project-id" type="hidden" value="0"/>
+    
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-2" id="setup-box-outer">
+        <br/>
+        <h2 class="setup-heading" style="color:#337ab7;">Edit Mission-Level Information</h2>
+        <form class="project-setup-form">
+            <h2 class="setup-heading" style="margin-bottom:0.5em;">Describe your website and business</h2>
+            <div class="project-setup-input row" style="text-align:left;">
+                <div class="col-lg-12">
+                    <label class="col-lg-12 col-md-12">
+                        <span class="mixed-use-paragraph">My business' website URL is </span><span class="mixed-use-paragraph" style="color:#595959;padding:0 15px;text-decoration:underline;"><a data-toggle="tooltip" class="tooltip-hover" title="Sorry, the mission URL cannot be changed; however, you can click here to start a new mission." id="project-url" onclick="gotoCreateProject();"></a></span><span class="mixed-use-paragraph"> and is</span><span class="mixed-use-paragraph" style="margin-top:-5px;"><select id='e-commerce-selection' onchange="refreshIndustries();"><option value='0'>a non-ecommerce</option><option value='1'>an e-commerce</option></select></span><span class="mixed-use-paragraph"> site that targets the</span><span class="mixed-use-paragraph" style="margin-top:-5px;"><select id='industry-selection'><option value='0'>Select...</option></select></span><span class="mixed-use-paragraph"> industry.</span>
+                    </label>
+                </div>
+
+                <div class="col-lg-12" style="margin-top:15px;">
+                    <label class="col-lg-12 col-md-12">
+                        <span class="mixed-use-paragraph">My business is located in</span><span class="mixed-use-paragraph" style="color:#595959;padding:0 15px;text-decoration:underline;"><a data-toggle="tooltip" class="tooltip-hover" title="Sorry, the mission location cannot be changed; however, you can click here to start a new mission." id="project-location" onclick="gotoCreateProject();"></a></span>
+                        <span class="mixed-use-paragraph">and I would like to rank</span><span class="mixed-use-paragraph" style="margin-top:-5px;"><select id="local-national"><option value="local">in my city</option><!--<option value="regional">in my metro area</option>--><option value="national">in my country</option></select></span>
+                        <span class="mixed-use-paragraph">&nbsp;&nbsp;on</span>
+                        <span class="col-lg-2 col-md-2 mixed-use-paragraph">
+                        <ul>
+                            <li class="checkbox-outer col-lg-2 col-md-2 mixed-use-paragraph">
+                                <h2 style="vertical-align:middle;float:left;margin-top:-10px;">
+                                    <input type="checkbox" id="use-google" value="1" checked onclick="checkRequiredEngine('google','bing');">
+                                    <label for="use-google" style="font-size:13px;">Google</label>
+                                </h2>
+                            </li>
+                        </ul>
+                        </span>
+                        <span class="mixed-use-paragraph">&nbsp;and&nbsp;&nbsp;</span>
+                        <span class="col-lg-2 col-md-2 mixed-use-paragraph">
+                        <ul>
+                            <li class="checkbox-outer col-lg-2 col-md-2 mixed-use-paragraph">
+                                <h2 style="vertical-align:middle;float:left;margin-top:-10px;">
+                                    <input type="checkbox" id="use-bing" value="1" checked onclick="checkRequiredEngine('bing','google');">
+                                    <label for="use-bing" style="font-size:13px;">Bing+Yahoo</label>
+                                </h2>
+                            </li>
+                        </ul>
+                        </span>
+
+                    </label>
+                </div>
+
+            </div>
+            
+            <div class="col-lg-12 range-slider-section" style="margin-top:15px;">
+                
+                <div class="project-setup-input col-lg-12" style="text-align:left;"><label class="col-lg-6">The monetary value <div id="currency-code-1" style="display:none;">$</div>of one paying <br/>customer is</label>
+
+                    <div class="col-lg-6 project-setup-slider">
+                        <input id="ex8" type="text" data-slider-min="0" data-slider-max="10000" data-slider-step="50" data-slider-value="0"/>
+
+                        <div id="ex8CurrentSliderValLabel" class="range-slider-value"><span class="range-title" id="currency-code-2">$</span>
+                            <input id="ex8SliderVal" type="text" class="range-count" value="0"/></div>
+                    </div>
+                </div>
+                
+                <div class="project-setup-input col-lg-12" style="text-align:left;"><label class="col-lg-6">The average cost to produce one piece of marketing content is</label>
+
+                    <div class="col-lg-6 project-setup-slider">
+                        <input id="ex9" type="text" data-slider-min="0" data-slider-max="5000" data-slider-step="25" data-slider-value="0"/>
+
+                        <div id="ex9CurrentSliderValLabel" class="range-slider-value"><span class="range-title" id="currency-code-3">$</span>
+                            <input id="ex9SliderVal" type="text" class="range-count" value="0"/></div>
+                    </div>
+                </div>
+                
+                <div class="project-setup-input row">
+                    <div class="col-lg-12">
+                        <p style="text-align:center;margin: 15px 0;">For a more accurate Keyword Net-Worth, answer the questions below:</p>
+                    </div>
+                </div>
+                
+                <div class="project-setup-input col-lg-12" style="text-align:left;"><label class="col-lg-6">How many visitors currently land on your website each month?</label>
+
+                    <div class="col-lg-6 project-setup-slider">
+                        <input id="ex6" type="text" data-slider-min="0" data-slider-max="100000" data-slider-step="1000" data-slider-value="0"/>
+
+                        <div id="ex6CurrentSliderValLabel" class="range-slider-value"><span class="range-title">V</span><input id="ex6SliderVal" type="text" class="range-count" value="0"/></div>
+                    </div>
+                </div>
+
+                <div class="project-setup-input col-lg-12" style="text-align:left;"><label class="col-lg-6">How many of the above visitors convert to actual paying customers?</label>
+
+                    <div class="col-lg-6 project-setup-slider">
+                        <input id="ex7" type="text" data-slider-min="0" data-slider-max="1000" data-slider-step="10" data-slider-value="0"/>
+
+                        <div id="ex7CurrentSliderValLabel" class="range-slider-value"><span class="range-title">P</span>
+                            <input id="ex7SliderVal" type="text" class="range-count" value="0"/></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="submit-button-block">
+                <a class="gray-btn btn pull-right" style="margin-left:10px;" onclick="cancelEditKeywordHackerProject();">CANCEL</a>
+                <a class="orange-btn btn pull-right" style="margin-right:10px;" onclick="editKeywordHackerProject('projects');">UPDATE</a>
+            </div>
+        </form>
+        <div class="project-setup-input row"><span id="edit-project-response" class="col-lg-12" style="text-align:center;"></span></div>
+    </div>
+    
+</div>
+    
+<div id="delete-project-window" class="delete-project-window">
+    <input id="delete-keyword-id" type="hidden" value="0"/>
+    
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-2" id="setup-box-outer">
+        <br/>
+        <h2 class="setup-heading" style="color:#337ab7;">Confirmation</h2>
+        <form class="project-setup-form">
+            
+            <div class="range-slider-section">
+                <p>Are you sure you want to delete this keyword?</p>
+            </div>
+
+            <div id="submit-button-block" style="text-align:center;">
+                <a class="gray-btn btn pull-right" style="margin-left:10px;" onclick="cancelDeleteKeywordHackerProject();">CANCEL</a>
+                <a class="orange-btn btn pull-right" style="margin-right:10px;" onclick="deleteKeyword();">Delete</a>
+            </div>
+        </form>
+        <div class="project-setup-input row"><span id="delete-project-response" class="col-lg-12" style="text-align:center;"></span></div>
+    </div>
+    
+</div>
+
+<div class="warning-message" id="warning-message">
+    <div class="col-lg-12">
+        Your project is still calculating. You can manually refresh this page to get the latest info, or we'll let you know as soon as all the numbers are in!
+    </div>
+</div>
+
+<div class="success-message" id="success-message">
+    <div class="col-lg-12">
+        Your project is done! Please refresh this page when you're ready to get the final numbers.
+    </div>
+</div>
+
+<!-- Alert modal -->
+<div id="alert-window" class="alert-window">
+    <div class="row">
+        <div class="col-lg-12 text-center" id="alert-msg-body">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <br/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <a class="alert-close-btn" id="alert_close_button" onclick="hideAlert();">CLOSE</a>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+============================== -->
+<!-- Footer start here -->
+<footer id="interface-footer">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="row">
+            <!--Footer left section start here-->
+            <div class="footer-link col-lg-4">
+                <ul class="text-left">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#"> Privacy Policy</a></li>
+                    <li><a href="#">agent@rankhacker.com </a></li>
+                </ul>
+            </div>
+            <!--footer left section close here-->
+            <!--footer center socail icon section start here-->
+            <div class="footer-socail-icon col-lg-4 ">
+                <ul class="text-center">
+                    <li><a href="https://www.facebook.com/rankhacker/?fref=ts" target="_blank"> <i class="fa fa-facebook"></i> </a></li>
+                    <li><a href="https://twitter.com/rank_hacker?lang=en" target="_blank"> <i class="fa fa-twitter"></i> </a></li>
+                    <!--<li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-vimeo-square"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-youtube-play"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>-->
+                </ul>
+            </div>
+            <!--footer center socail icon section close here-->
+            <!--copyright section start here-->
+            <div class="copy-right-section col-lg-4 text-right"> &copy; 2015 All Rights Reserved</div>
+            <!--copyright section close here-->
+        </div>
+    </div>
+</footer>
+<!--Footer close here-->
+
+<!-- =========================
+     JS SCRIPTS
+============================== -->
+<!-- JQUERY -->
+
+<style>.instruction-note {
+}
+
+.display {
+}</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+<!-- BOOTSTRAP SCRIPTS -->
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="js/jquery.matchHeight-min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/bootstrap-slider.js"></script>
+<script src="js/readmore.js"></script>
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('.matchheight').matchHeight();
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+
+    new Clipboard('.copy-button');
+    
+    //$('[data-toggle="tooltip"]').tooltip();
+    //$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+    //Active the project table
+    $('#projectResearchDiv').click();
+    
+    $("#contentHackerLinkLogo").hover(function () {
+        $("#contentHackerLinkLogo").animate({ opacity: 1 },0);
+        $("#contentHackerLinkText").animate({ opacity: 1 },0);
+    },
+    function() {
+        $("#contentHackerLinkLogo").animate({ opacity: 0.6 },0);
+        $("#contentHackerLinkText").animate({ opacity: 0.6 },0);
+    });
+    
+    $("#contentHackerLinkText").hover(function () {
+        $("#contentHackerLinkLogo").animate({ opacity: 1 },0);
+        $("#contentHackerLinkText").animate({ opacity: 1 },0);
+    },
+    function() {
+        $("#contentHackerLinkLogo").animate({ opacity: 0.6 },0);
+        $("#contentHackerLinkText").animate({ opacity: 0.6 },0);
+    });
+
+        $(".project-row-outer div").on("click", ".collapsenew", function () {
+            
+            $(this).addClass("select");
+            $(this).removeAttr("href");
+            
+            /*var el = $(this).parent();
+            console.log($(el).html());*/
+            /*if ($(this).hasClass("collapsed")) {
+                $(".project-view-nav").removeClass("active");
+                $(".research-view-nav").addClass("active");
+            } else {
+                $(".project-view-nav").addClass("active");
+                $(".research-view-nav").removeClass("active");
+            }*/
+        });
+        
+        $(".keyword-phraser-row-outer .suggest-keywords-list ul ").on("click", "li", function () {
+            var parent_get = $(this).parents().find(".keyword-phraser-section.collapse.in").attr('id');
+            //jQuery('.phraser-accordion-outer .keyword-phraser-row').removeClass('active');
+            //jQuery('.phraser-accordion-outer .keyword-phraser-row .collapse').removeClass('in');
+
+            //console.log(parent_get);
+            var parent_id = "#" + parent_get;
+
+            $(this).hide(400);
+            var text_of_li = $(this).html();
+            //alert(text_of_li);
+
+
+            //$("#template .keyword-phraser-row").clone().appendTo(parent_id + " .phraser-accordion-outer");
+            //$(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child .keyword-phraser-tittle h2 a").html(text_of_li);
+
+            var text_of_li_new_old = text_of_li.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '');
+            var text_of_li_new = text_of_li_new_old.substring(0, 5);
+
+            //alert(text_of_li_new);
+
+            var id_of_ul = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").attr('id');
+            var id_of_ul_div = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").next('div').attr('id');
+            var id_of_ul_div_attr = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").next('div').attr('aria-labelledby');
+            var id_of_ul_aria_controls = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.power-goal-info h2 a").attr('aria-controls');
+            var id_of_ul_aria_labelledby = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.power-goal-info h2 a").attr('href');
+            var id_of_ul_aria_controls = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.keyword-phraser-tittle h2 a").attr('href');
+            var id_of_ul_aria_controls = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.keyword-phraser-tittle h2 a").attr('aria-controls');
+            var id_phraser_accordion = $(parent_id + " .phraser-accordion-outer").attr('id');
+
+            //alert(id_of_ul);
+
+
+            $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").attr('id', id_of_ul + text_of_li_new + parent_get);
+            $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").next('div').attr('id', id_of_ul_div + text_of_li_new + parent_get);
+            $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").next('div').attr('aria-labelledby', id_of_ul_div_attr + text_of_li_new + parent_get);
+            $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.power-goal-info h2 a").attr('aria-controls', id_of_ul_aria_controls + text_of_li_new + parent_get);
+            $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.power-goal-info h2 a").attr('href', id_of_ul_aria_labelledby + text_of_li_new + parent_get);
+            $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.keyword-phraser-tittle h2 a").attr('aria-controls', id_of_ul_aria_controls + text_of_li_new + parent_get);
+            $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.keyword-phraser-tittle h2 a").attr('href', id_of_ul_aria_labelledby + text_of_li_new + parent_get);
+
+            $(parent_id + " .phraser-accordion-outer").attr('id', id_phraser_accordion + parent_get);
+            $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.power-goal-info h2 a").attr('data-parent', '#' + id_phraser_accordion + parent_get);
+            $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.keyword-phraser-tittle h2 a").attr('data-parent', '#' + id_phraser_accordion + parent_get);
+
+            var chkflag = 1;
+            $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.checkbox-outer").each(function () {
+                chkflag++;
+                $(this).find('input').attr('id', 'chk-content-' + text_of_li_new + parent_get + chkflag);
+                $(this).find('label').attr('for', 'chk-content-' + text_of_li_new + parent_get + chkflag);
+            });
+
+            /*jQuery(parent_id+" .phraser-accordion-outer .keyword-phraser-row .keyword-phraser-tittle a").on('click', function(){
+             //jQuery('.phraser-accordion-outer .keyword-phraser-row').removeClass('active');
+             //jQuery('.phraser-accordion-outer .keyword-phraser-row .keyword-phraser-tittle a').removeClass('collapsed');
+             //jQuery('.phraser-accordion-outer .keyword-phraser-row .collapse').removeClass('in');
+             var href_val = jQuery(this).attr("aria-controls");
+
+             //jQuery('.phraser-accordion-outer .keyword-phraser-row .keyword-phraser-tittle a').toggleClass('collapsed');
+             jQuery(this).toggleClass('collapsed');
+             //if(jQuery(this).hasClass('collapsed')){
+
+             //}
+             jQuery('.phraser-accordion-outer .keyword-phraser-row').removeClass('active');
+             //jQuery('.phraser-accordion-outer .keyword-phraser-row .keyword-phraser-tittle a').removeClass('collapsed');
+             jQuery('.phraser-accordion-outer .keyword-phraser-row .collapse').removeClass('in');
+             jQuery(this).parents(".keyword-phraser-row").addClass('active');
+             //jQuery(this).parents(".keyword-phraser-row").children(".panel-collapse.collapse").addClass('in');
+
+
+             });*/
+            //	..attr('id', 'chk-content-'+text_of_li_new+parent_get);
+
+
+//			$(parent_id+" .phraser-accordion-outer .keyword-phraser-row:last-child ul li.checkbox-outer input").attr('id', 'chk-content-'+text_of_li_new+parent_get);
+            //		$(parent_id+" .phraser-accordion-outer .keyword-phraser-row:last-child ul li.checkbox-outer label").attr('for','chk-content-'+text_of_li_new+parent_get);
+            
+            //Here's where we add the keyword to the list
+            addKeywordInReport(text_of_li);
+            
+        });
+
+
+        $("a#button-add-url").on("click", function (event) {
+            event.preventDefault();
+
+            $(this).hide();
+            var url_box = $("#url-box-template").html();
+            $(this).parent().before(url_box);
+            //toggle_add_more();
+            $('#custom-url').focus();
+        });
+
+        $('.add-custom-keyword-outer').on('keypress', '.url-input', function (e) {
+            if (e.which == 13) {
+                $(this).blur();
+            }
+        });
+
+        $('.add-custom-keyword-outer').on('blur', '.url-input', function () {
+            var parent_get = $(this).parents().find(".keyword-phraser-section.collapse.in").attr('id');
+            //console.log(parent_get);
+            var parent_id = "#" + parent_get;
+            var url_val = $(this).val();
+            if (url_val == "") {
+
+            } else {
+                /*$("#template .keyword-phraser-row").clone().appendTo(parent_id + " .phraser-accordion-outer");
+                $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child .keyword-phraser-tittle h2 a").html(url_val);
+                //$(this).parent().parent().parent().find(".suggest-keywords-list ul").append('<li>'+url_val+'</li>');
+                //jQuery('.phraser-accordion-outer .keyword-phraser-row').removeClass('active');
+                //jQuery('.phraser-accordion-outer .keyword-phraser-row .collapse').removeClass('in');
+
+                var text_of_li = url_val;
+                //alert(text_of_li);
+                //console.log(text_of_li);
+
+
+                //$("#template .keyword-phraser-row").clone().appendTo(parent_id+" .phraser-accordion-outer");
+                //$(parent_id+" .phraser-accordion-outer .keyword-phraser-row:last-child .keyword-phraser-tittle h2 a").html(text_of_li);
+
+                var text_of_li_new_old = text_of_li.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '');
+                var text_of_li_new = text_of_li_new_old.substring(0, 5);
+                //console.log(text_of_li_new);
+
+                //alert(text_of_li_new);
+
+                var id_of_ul = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").attr('id');
+                var id_of_ul_div = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").next('div').attr('id');
+                var id_of_ul_div_attr = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").next('div').attr('aria-labelledby');
+                var id_of_ul_aria_controls = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.power-goal-info h2 a").attr('aria-controls');
+                var id_of_ul_aria_labelledby = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.power-goal-info h2 a").attr('href');
+                var id_of_ul_aria_controls = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.keyword-phraser-tittle h2 a").attr('href');
+                var id_of_ul_aria_controls = $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.keyword-phraser-tittle h2 a").attr('aria-controls');
+                var id_phraser_accordion = $(parent_id + " .phraser-accordion-outer").attr('id');
+
+                //alert(id_of_ul);
+
+
+                $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").attr('id', id_of_ul + text_of_li_new + parent_get);
+                $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").next('div').attr('id', id_of_ul_div + text_of_li_new + parent_get);
+                $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul").next('div').attr('aria-labelledby', id_of_ul_div_attr + text_of_li_new + parent_get);
+                $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.power-goal-info h2 a").attr('aria-controls', id_of_ul_aria_controls + text_of_li_new + parent_get);
+                $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.power-goal-info h2 a").attr('href', id_of_ul_aria_labelledby + text_of_li_new + parent_get);
+                $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.keyword-phraser-tittle h2 a").attr('aria-controls', id_of_ul_aria_controls + text_of_li_new + parent_get);
+                $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.keyword-phraser-tittle h2 a").attr('href', id_of_ul_aria_labelledby + text_of_li_new + parent_get);
+
+                $(parent_id + " .phraser-accordion-outer").attr('id', id_phraser_accordion + parent_get);
+                $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.power-goal-info h2 a").attr('data-parent', '#' + id_phraser_accordion + parent_get);
+                $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.keyword-phraser-tittle h2 a").attr('data-parent', '#' + id_phraser_accordion + parent_get);
+
+                var chkflag = 1;
+                $(parent_id + " .phraser-accordion-outer .keyword-phraser-row:last-child ul li.checkbox-outer").each(function () {
+                    chkflag++;
+                    $(this).find('input').attr('id', 'chk-content-' + text_of_li_new + parent_get + chkflag);
+                    $(this).find('label').attr('for', 'chk-content-' + text_of_li_new + parent_get + chkflag);
+                });*/
+
+                /*jQuery(parent_id+" .phraser-accordion-outer .keyword-phraser-row .keyword-phraser-tittle a").on('click', function(){
+                 //jQuery('.phraser-accordion-outer .keyword-phraser-row').removeClass('active');
+                 //jQuery('.phraser-accordion-outer .keyword-phraser-row .keyword-phraser-tittle a').removeClass('collapsed');
+                 //jQuery('.phraser-accordion-outer .keyword-phraser-row .collapse').removeClass('in');
+                 var href_val = jQuery(this).attr("aria-controls");
+
+                 //jQuery('.phraser-accordion-outer .keyword-phraser-row .keyword-phraser-tittle a').toggleClass('collapsed');
+                 jQuery(this).toggleClass('collapsed');
+                 if(jQuery(this).hasClass('collapsed')){
+                 jQuery('.phraser-accordion-outer .keyword-phraser-row').removeClass('active');
+                 jQuery('.phraser-accordion-outer .keyword-phraser-row .keyword-phraser-tittle a').toggleClass('collapsed');
+                 jQuery('.phraser-accordion-outer .keyword-phraser-row .collapse').removeClass('in');
+                 }
+                 jQuery(this).parents(".keyword-phraser-row").toggleClass('active');
+                 //jQuery(this).parents(".keyword-phraser-row").children(".panel-collapse.collapse").addClass('in');
+
+
+                 });*/
+
+
+            }
+            $(this).remove();
+            $("a#button-add-url").show();
+            
+            //Here's where we add the keyword to the list
+            addKeywordInReport(url_val);
+        });
+
+
+        // Add active class in phraser-accordion-outer
+        jQuery('.phraser-accordion-outer').on('shown.bs.collapse', function () {
+
+            jQuery('.phraser-accordion-outer .keyword-phraser-row').each(function (i) {
+
+                if (jQuery(this).children('div[aria-expanded="true"]').length != 0) {
+                    jQuery(this).addClass('active');
+                    jQuery(this).find(".keyword-row-arrow").attr('src',function(i,e){
+                        return e.replace("keyword_row_arrow_white.png","keyword_row_arrow_yellow.png");
+                    });
+                    var id = $(this).attr('id');
+                    var targetID = "kwid-"+id.replace("kw-panel-div","")+"-plg-1";
+                    jQuery("#"+targetID).css("margin-top","-2px");
+                }
+            });
+            
+
+            jQuery('.phraser-accordion-outer').each(function (i) {
+
+                var rows = jQuery(this).find('.keyword-phraser-row').length;
+                var expanded = jQuery(this).find('div[aria-expanded="true"]').length;
+                if (rows == expanded) {
+                    jQuery(this).parent().parent().find('.instruction-note').text('COLLAPSE ALL');
+                }
+            });
+        });
+
+
+        jQuery('.phraser-accordion-outer').on('hidden.bs.collapse', function () {
+
+            jQuery('.phraser-accordion-outer .keyword-phraser-row').each(function (i) {
+                if (jQuery(this).children('div[aria-expanded="false"]').length != 0) {
+                    jQuery(this).removeClass('active');
+                    jQuery(this).find(".keyword-row-arrow").attr('src',function(i,e){
+                        return e.replace("keyword_row_arrow_yellow.png","keyword_row_arrow_white.png");
+                    });
+                    
+                    var id = $(this).attr('id');
+                    var targetID = "kwid-"+id.replace("kw-panel-div","")+"-plg-1";
+                    jQuery("#"+targetID).css("margin-top","0");
+                }
+            });
+//		jQuery('.phraser-accordion-outer .keyword-phraser-row').removeClass('active');
+
+
+            jQuery('.phraser-accordion-outer').each(function (i) {
+
+                var rows = jQuery(this).find('.keyword-phraser-row').length;
+                var expanded = jQuery(this).find('div[aria-expanded="true"]').length;
+                if (rows > expanded) {
+                    jQuery(this).parent().parent().find('.instruction-note').text('EXPAND ALL');
+                }
+            });
+
+
+        });
+
+
+        /*jQuery('.instruction-note').click(function () {
+            var all = 'hide';
+            if ('EXPAND ALL' == jQuery(this).text()) {
+                all = 'show';
+            }
+            jQuery(this).parent().find('.panel-collapse').collapse(all)
+        });*/
+
+        //range slider custom js
+        $("#ex6").slider();
+        $("#ex6").on("slide, slideStop", function (slideEvt) {
+            var slider_num_ex6 = numeral(slideEvt.value).format('0,0');
+            //var slider_num_ex6 = tooltip-inner;
+            $("#ex6SliderVal").val(slider_num_ex6);
+        });
+        $("#ex6SliderVal").change(function(){
+            var sliderVal = parseInt($("#ex6SliderVal").val().replace(",",""));
+            if(isNaN(sliderVal) || sliderVal < 0){ sliderVal = 0; }
+            $("#ex6").slider({
+                value: sliderVal
+                });
+            $("#ex6").slider('refresh');
+            $("#ex6SliderVal").val(numberWithCommas(sliderVal));
+        });
+
+
+        $("#ex7").slider();
+        $("#ex7").on("slide, slideStop", function (slideEvt) {
+            var slider_num_ex7 = numeral(slideEvt.value).format('0,0');
+            $("#ex7SliderVal").val(slider_num_ex7);
+        });
+        $("#ex7SliderVal").change(function(){
+            var sliderVal = parseInt($("#ex7SliderVal").val().replace(",",""));
+            if(isNaN(sliderVal) || sliderVal < 0){ sliderVal = 0; }
+            $("#ex7").slider({
+                value: sliderVal
+                });
+            $("#ex7").slider('refresh');
+            $("#ex7SliderVal").val(numberWithCommas(sliderVal));
+        });
+
+
+        $("#ex8").slider();
+        $("#ex8").on("slide, slideStop", function (slideEvt) {
+            var slider_num_ex8 = numeral(slideEvt.value).format('0,0');
+            $("#ex8SliderVal").val(slider_num_ex8);
+        });
+        $("#ex8SliderVal").change(function(){
+            var sliderVal = parseInt($("#ex8SliderVal").val().replace(",",""));
+            if(isNaN(sliderVal) || sliderVal < 0){ sliderVal = 0; }
+            $("#ex8").slider({
+                value: sliderVal
+                });
+            $("#ex8").slider('refresh');
+            $("#ex8SliderVal").val(numberWithCommas(sliderVal));
+        });
+        
+        $("#ex9").slider();
+        $("#ex9").on("slide, slideStop", function (slideEvt) {
+            var slider_num_ex9 = numeral(slideEvt.value).format('0,0');
+            $("#ex9SliderVal").val(slider_num_ex9);
+        });
+        $("#ex9SliderVal").change(function(){
+            var sliderVal = parseInt($("#ex9SliderVal").val().replace(",",""));
+            if(isNaN(sliderVal) || sliderVal < 0){ sliderVal = 0; }
+            $("#ex9").slider({
+                value: sliderVal
+                });
+            $("#ex9").slider('refresh');
+            $("#ex9SliderVal").val(numberWithCommas(sliderVal));
+        });
+
+    });
+</script>
+
+<input type="hidden" id="json" value=""/>
+<input type="hidden" id="competitor-sort-method" value="google-rank"/>
+<input type="hidden" id="competitor-sort-reversed" value="false"/>
+
+<input type="hidden" id="keyword-sort-method" value="keyword"/>
+<input type="hidden" id="keyword-sort-reversed" value="false"/>
+
+<input type="hidden" id="check-project-done-flag" value="0"/>
+
+</body>
+</html>
